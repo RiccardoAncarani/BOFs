@@ -40,6 +40,14 @@ DECLSPEC_IMPORT DWORD WINAPI KERNEL32$GetFileSize(
   LPDWORD lpFileSizeHigh
 );
 
+DECLSPEC_IMPORT BOOL WINAPI KERNEL32$UnmapViewOfFile(
+  LPCVOID lpBaseAddress
+);
+
+DECLSPEC_IMPORT BOOL WINAPI KERNEL32$CloseHandle(
+  HANDLE hObject
+);
+
 // https://gist.github.com/ccbrown/9722406
 void DumpHex(const void* data, size_t size) {
 	char ascii[17];
@@ -105,5 +113,8 @@ void go(char *args, int len) {
     
     BeaconPrintf(CALLBACK_OUTPUT, "%s", fileBytes);
 
-    
+    KERNEL32$UnmapViewOfFile(fileBytes);
+    KERNEL32$CloseHandle(hMapping);
+    KERNEL32$CloseHandle(hFile);
+
 }
