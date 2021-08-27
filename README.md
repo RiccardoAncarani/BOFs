@@ -6,6 +6,7 @@ A collection of utilities for Cobalt Strike's Beacon Object Files to make our li
 |------|-------------|-------|
 `send_shellcode_via_pipe` | A BOF that allows the operator to send a shellcode or any byte content via a named pipe. | `send_shellcode_via_pipe <pipe> <file> `|
 `cat` | As the name implies, finally allows you to get the content of a text file from Cobalt Strike. Supports remote shares. | `cat <file>`
+`wts_enum_remote_processes` | Enumerate remote processes using WTS APIs, also useful to check if you have access to a system| `wts_enum_remote_processes <host>`|
 
 **NOTE**: Side effects could include: nose bleed, unrecoverable and immediate death of your beacons.
 
